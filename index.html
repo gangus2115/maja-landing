@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maja Słowik 😈</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>😈</text></svg>">
+<title>Maja Słowik</title>
+<link rel="icon" type="image/png" href="https://emojicdn.elk.sh/%F0%9F%98%88?style=apple">
 <!-- TODO: wklej tu Meta Pixel / TikTok Pixel pod retargeting -->
 <style>
   :root{
@@ -29,11 +29,11 @@
 
   /* HERO PORTRET */
   .hero{position:relative;overflow:hidden}
-  .hero>img{width:100%;display:block;aspect-ratio:3/3.4;object-fit:cover;object-position:center 25%}
+  .hero>img{width:100%;display:block;aspect-ratio:3/2.7;object-fit:cover;object-position:center 22%}
   .hero::after{content:"";position:absolute;inset:0;
     background:linear-gradient(to bottom,transparent 35%,rgba(12,12,15,.85) 80%,var(--bg) 100%)}
   .hero-info{position:absolute;left:0;right:0;bottom:14px;z-index:2;text-align:center;padding:0 20px}
-  .name{font-size:1.7rem;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .name{font-size:1.7rem;font-weight:800;display:flex;align-items:center;justify-content:center;gap:8px}
   .verified{width:24px;height:24px;flex:0 0 auto}
   .status{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:#dfdde3;margin-top:4px}
   .dot{width:9px;height:9px;border-radius:50%;background:var(--green);
@@ -42,7 +42,8 @@
 
   .content{padding:6px 16px 30px}
   /* PERWERSYJNY NAGŁÓWEK */
-  .tagline{text-align:center;font-size:1rem;line-height:1.5;color:#ece9ef;margin:6px auto 14px;max-width:330px;font-weight:500}
+  .tagline{text-align:center;font-size:1rem;line-height:1.5;color:#ece9ef;margin:4px auto 12px;max-width:330px;font-weight:500}
+  .em{height:1em;width:auto;vertical-align:-.15em;display:inline-block}
   /* SOCIAL ICONS */
   .socials{display:flex;justify-content:center;gap:16px;margin-bottom:18px}
   .socials a{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--line);
@@ -67,7 +68,7 @@
   .card.cta .cap{font-size:1.18rem}
 
   /* ZABLUROWANY KAFEL "ODBLOKUJ" (dodatkowa sztuczka) */
-  .card.locked img{filter:blur(6px) brightness(.82);transform:scale(1.06)}
+  .card.locked img{filter:blur(4px) brightness(.85);transform:scale(1.04)}
   .card.locked .lock{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;
                      justify-content:center;gap:6px;font-weight:800;font-size:1rem;text-shadow:0 2px 8px rgba(0,0,0,.7)}
   .card.locked .lock .ic{font-size:1.7rem}
@@ -102,21 +103,21 @@
 
     <div class="content">
       <!-- PERWERSYJNY NAGŁÓWEK -->
-      <p class="tagline">Grzeczne dziewczynki idą do nieba, a ja… zapraszam Cię do mojego prywatnego świata 😈 Sprawdź sam 👇</p>
+      <p class="tagline">Grzeczne dziewczynki idą do nieba, a ja… zapraszam Cię do mojego prywatnego świata <img class="em" src="https://emojicdn.elk.sh/%F0%9F%98%88?style=apple" alt="😈"> Sprawdź sam <img class="em" src="https://emojicdn.elk.sh/%F0%9F%91%87?style=apple" alt="👇"></p>
 
       <!-- SOCIAL -->
 
       <!-- GŁÓWNE CTA – pulsująca, powiększająca się karta-zdjęcie → link afiliacyjny -->
       <a class="card cta" href="WKLEJ_TUTAJ_SWÓJ_LINK" target="_blank" rel="nofollow sponsored">
         <img src="img/cta.jpg" alt=""><!-- TODO: img/cta.jpg = pikantne selfie (lozko mvp) -->
-        <span class="cap">To czego szukasz… 😊</span>
+        <span class="cap">To czego szukasz… <img class="em" src="https://emojicdn.elk.sh/%F0%9F%98%8A?style=apple" alt="😊"></span>
       </a>
 
       <!-- ZABLUROWANY KAFEL "ODBLOKUJ" → ten sam link afiliacyjny -->
       <a class="card locked" href="WKLEJ_TUTAJ_SWÓJ_LINK" target="_blank" rel="nofollow sponsored">
         <img src="img/lock.jpg" alt=""><!-- TODO: img/lock.jpg = przymierzalnia (lingerie) -->
         <span class="badge">18+</span>
-        <span class="lock"><span class="ic">🔒</span>Odblokuj</span>
+        <span class="lock"><img class="em" style="height:1.6rem" src="https://emojicdn.elk.sh/%F0%9F%94%92?style=apple" alt="🔒">Odblokuj</span>
       </a>
 
       <footer>
