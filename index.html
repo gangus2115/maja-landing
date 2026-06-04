@@ -51,7 +51,7 @@
 
   /* PHOTO CARDS (klikalne, jak mrshoney) */
   .card{position:relative;display:block;border-radius:16px;overflow:hidden;margin-bottom:14px;text-decoration:none;color:#fff}
-  .card img{width:100%;display:block;aspect-ratio:4/3.1;object-fit:cover}
+  .card > img{width:100%;display:block;aspect-ratio:4/3.1;object-fit:cover}
   .card::after{content:"";position:absolute;inset:0;
     background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 45%)}
   .card .cap{position:absolute;left:14px;bottom:12px;z-index:2;font-weight:700;font-size:1.05rem;
@@ -68,7 +68,7 @@
   .card.cta .cap{font-size:1.18rem}
 
   /* ZABLUROWANY KAFEL "ODBLOKUJ" (dodatkowa sztuczka) */
-  .card.locked img{filter:blur(4px) brightness(.85);transform:scale(1.04)}
+  .card.locked > img{filter:blur(4px) brightness(.85);transform:scale(1.04)}
   .card.locked .lock{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;
                      justify-content:center;gap:6px;font-weight:800;font-size:1rem;text-shadow:0 2px 8px rgba(0,0,0,.7)}
   .card.locked .lock .ic{font-size:1.7rem}
