@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maja Słowik</title>
+<!-- TODO: wklej tu Meta Pixel / TikTok Pixel pod retargeting -->
+<style>
+  :root{
+    --bg:#0c0c0f; --card:#15151b; --line:#23232c;
+    --text:#f4f2ef; --muted:#9b98a3; --green:#2fd27a;
+    --maxw:420px;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#000;color:var(--text);min-height:100vh;display:flex;justify-content:center}
+  .wrap{width:100%;max-width:var(--maxw);background:var(--bg);min-height:100vh}
+
+  /* 18+ GATE */
+  #gate{position:fixed;inset:0;background:rgba(7,7,10,.98);z-index:60;display:flex;flex-direction:column;
+        align-items:center;justify-content:center;text-align:center;padding:30px}
+  #gate h2{font-size:1.5rem;margin-bottom:10px}
+  #gate p{color:var(--muted);max-width:320px;margin-bottom:24px;line-height:1.5}
+  .gate-btns{display:flex;gap:12px}
+  .gate-btns button{padding:14px 26px;border-radius:999px;border:0;font-size:1rem;font-weight:700;cursor:pointer}
+  #enter{background:linear-gradient(135deg,#ff3d7f,#ff7eb3);color:#fff}
+  #leave{background:transparent;color:var(--muted);border:1px solid var(--line)}
+
+  /* HERO PORTRET */
+  .hero{position:relative;overflow:hidden}
+  .hero>img{width:100%;display:block;aspect-ratio:3/3.4;object-fit:cover;object-position:center 25%}
+  .hero::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(to bottom,transparent 35%,rgba(12,12,15,.85) 80%,var(--bg) 100%)}
+  .hero-info{position:absolute;left:0;right:0;bottom:14px;z-index:2;text-align:center;padding:0 20px}
+  .name{font-size:1.7rem;font-weight:800}
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:.82rem;color:#dfdde3;margin-top:4px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--green);
+       box-shadow:0 0 0 0 rgba(47,210,122,.6);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,210,122,.5)}70%{box-shadow:0 0 0 9px rgba(47,210,122,0)}100%{box-shadow:0 0 0 0 rgba(47,210,122,0)}}
+
+  .content{padding:6px 16px 30px}
+  /* PERWERSYJNY NAGŁÓWEK */
+  .tagline{text-align:center;font-size:1rem;line-height:1.5;color:#ece9ef;margin:6px auto 14px;max-width:330px;font-weight:500}
+  /* SOCIAL ICONS */
+  .socials{display:flex;justify-content:center;gap:16px;margin-bottom:18px}
+  .socials a{width:40px;height:40px;border-radius:50%;background:var(--card);border:1px solid var(--line);
+             display:flex;align-items:center;justify-content:center;font-size:1.1rem;text-decoration:none;color:#fff}
+
+  /* PHOTO CARDS (klikalne, jak mrshoney) */
+  .card{position:relative;display:block;border-radius:16px;overflow:hidden;margin-bottom:14px;text-decoration:none;color:#fff}
+  .card img{width:100%;display:block;aspect-ratio:4/3.1;object-fit:cover}
+  .card::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 45%)}
+  .card .cap{position:absolute;left:14px;bottom:12px;z-index:2;font-weight:700;font-size:1.05rem;
+             text-shadow:0 2px 8px rgba(0,0,0,.7)}
+  .card .badge{position:absolute;top:10px;right:10px;z-index:2;background:rgba(0,0,0,.5);
+               border:1px solid rgba(255,255,255,.18);font-size:.66rem;padding:4px 9px;border-radius:999px}
+
+  /* GŁÓWNE CTA – pulsuje i powiększa się */
+  .card.cta{animation:beat 1.6s ease-in-out infinite;box-shadow:0 0 0 0 rgba(255,61,127,.5)}
+  @keyframes beat{
+    0%,100%{transform:scale(1);box-shadow:0 0 22px 2px rgba(255,61,127,.35)}
+    50%{transform:scale(1.035);box-shadow:0 0 34px 6px rgba(255,61,127,.6)}
+  }
+  .card.cta .cap{font-size:1.18rem}
+
+  /* ZABLUROWANY KAFEL "ODBLOKUJ" (dodatkowa sztuczka) */
+  .card.locked img{filter:blur(15px) brightness(.65);transform:scale(1.1)}
+  .card.locked .lock{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;
+                     justify-content:center;gap:6px;font-weight:800;font-size:1rem;text-shadow:0 2px 8px rgba(0,0,0,.7)}
+  .card.locked .lock .ic{font-size:1.7rem}
+
+  footer{margin-top:18px;text-align:center;color:#6c6975;font-size:.7rem;line-height:1.6}
+  footer a{color:#8a8792}
+</style>
+</head>
+<body>
+
+  <div id="gate">
+    <h2>Treści 18+</h2>
+    <p>Ta strona zawiera treści dla osób pełnoletnich. Masz ukończone 18 lat?</p>
+    <div class="gate-btns">
+      <button id="enter">Mam 18+ &nbsp;Wejdź</button>
+      <button id="leave" onclick="location.href='https://www.google.com'">Wyjdź</button>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- HERO -->
+    <div class="hero">
+      <img src="img/hero.jpg" alt="Maja Słowik"><!-- TODO: img/hero.jpg = portret (twarz/sypialnia) -->
+      <div class="hero-info">
+        <div class="name">Maja Słowik</div>
+        <div class="status"><span class="dot"></span>Active now</div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- PERWERSYJNY NAGŁÓWEK -->
+      <p class="tagline">Grzeczne dziewczynki idą do nieba, a ja… zapraszam Cię do mojego prywatnego świata 😈 Sprawdź sam 👇</p>
+
+      <!-- SOCIAL -->
+
+      <!-- GŁÓWNE CTA – pulsująca, powiększająca się karta-zdjęcie → link afiliacyjny -->
+      <a class="card cta" href="WKLEJ_TUTAJ_SWÓJ_LINK" target="_blank" rel="nofollow sponsored">
+        <img src="img/cta.jpg" alt=""><!-- TODO: img/cta.jpg = pikantne selfie (lozko mvp) -->
+        <span class="cap">To czego szukasz… 😊</span>
+      </a>
+
+      <!-- ZABLUROWANY KAFEL "ODBLOKUJ" → ten sam link afiliacyjny -->
+      <a class="card locked" href="WKLEJ_TUTAJ_SWÓJ_LINK" target="_blank" rel="nofollow sponsored">
+        <img src="img/lock.jpg" alt=""><!-- TODO: img/lock.jpg = przymierzalnia (lingerie) -->
+        <span class="badge">18+</span>
+        <span class="lock"><span class="ic">🔒</span>Odblokuj</span>
+      </a>
+
+      <footer>
+        Postać wirtualna (AI). Linki afiliacyjne (#reklama) — mogę otrzymywać prowizję. Treści 18+.<br>
+        © 2026 Maja Słowik &nbsp;·&nbsp; <a href="#">Regulamin</a> &nbsp;·&nbsp; <a href="#">Prywatność</a>
+      </footer>
+    </div>
+  </div>
+
+<script>
+  (function(){
+    var g=document.getElementById('gate');
+    if(sessionStorage.getItem('age_ok')==='1') g.style.display='none';
+    document.getElementById('enter').onclick=function(){sessionStorage.setItem('age_ok','1');g.style.display='none';};
+  })();
+</script>
+</body>
+</html>
