@@ -14,8 +14,11 @@
     font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#000;color:var(--text);min-height:100vh;display:flex;justify-content:center}
+  body{background:#050506 url('img/marble.jpg') center center / cover fixed no-repeat;color:var(--text);min-height:100vh;display:flex;justify-content:center}
   .wrap{width:100%;max-width:var(--maxw);background:var(--bg);min-height:100vh}
+  @media(min-width:560px){
+    .wrap{max-width:620px;box-shadow:0 0 100px 24px rgba(0,0,0,.85)}
+  }
 
   /* 18+ GATE */
   #gate{position:fixed;inset:0;background:rgba(7,7,10,.98);z-index:60;display:flex;flex-direction:column;
